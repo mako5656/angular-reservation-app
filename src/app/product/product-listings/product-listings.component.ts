@@ -4,10 +4,10 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
-  selector: 'app-product-list',
+  selector: 'app-product-listings',
   imports: [RouterLink, CommonModule],
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.scss'
+  templateUrl: './product-listings.component.html',
+  styleUrl: './product-listings.component.scss'
 })
 export class ProductListComponent {
   products = [1, 2, 3, 4];
