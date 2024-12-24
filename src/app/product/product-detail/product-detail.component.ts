@@ -9,7 +9,17 @@ import { products } from '../../products';
   styleUrl: './product-detail.component.scss'
 })
 export class ProductDetailComponent implements OnInit {
-  product: { name: string; price: number; description: string } | undefined = undefined;
+  product: { 
+    name: string; 
+    price: number; 
+    description: string ;
+    heading1: string;
+    heading2: string;
+    heading3: string;
+    heading_text1: string;
+    heading_text2: string;
+    heading_text3: string;
+  } | undefined = undefined;
 
   constructor(private route: ActivatedRoute) { }
 
