@@ -10,6 +10,7 @@ import { products } from '../../products';
 })
 export class ProductDetailComponent implements OnInit {
   product: { 
+    cover_image: string;
     name: string; 
     price: number; 
     description: string ;

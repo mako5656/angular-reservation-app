@@ -12,6 +12,7 @@ import { products } from '../../products';
 })
 export class ProductListComponent implements OnInit {
   products: { 
+    cover_image: string;
     name: string; 
     price: number; 
     description: string; 
