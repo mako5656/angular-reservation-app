@@ -9,4 +9,8 @@ export class ProductService {
     getProducts() {
         return products;
     }
+
+    getProductById(productId: number) {
+        return products[productId];
+    }
 }
