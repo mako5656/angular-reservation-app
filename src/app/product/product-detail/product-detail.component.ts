@@ -1,15 +1,17 @@
 import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../shared/product.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss'
 })
 export class ProductDetailComponent implements OnInit {
   product: { 
+    _id: string;
     cover_image: string;
     name: string; 
     price: number; 
@@ -29,10 +31,15 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      const productId = params.get('productId');
-      if (productId !== null) {
-        this.product = this.productService.getProductById(+params.get('productId')!);
-      }
+      const productObservable  = this.productService.getProductById(params.get('productId')!);
+      productObservable.subscribe({
+        next: (data: any) => {
+          this.product = data;
+        },
+        error: (error: any) => {
+          console.error('次のエラーが発生しました:', error);
+        }
+      });
     });
   }
 }
