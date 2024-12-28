@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { products } from '../../products';
+import { ProductService } from '../shared/product.service';
 
 @Component({
   standalone: true,
@@ -24,9 +24,9 @@ export class ProductListComponent implements OnInit {
     heading_text3: string;
   }[] = [];
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.products = products;
+    this.products = this.productService.getProducts();
   }
 }
